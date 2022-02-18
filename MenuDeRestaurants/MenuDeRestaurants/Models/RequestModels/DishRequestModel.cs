@@ -5,7 +5,7 @@ namespace MenuDeRestaurants.Models.RequestModels
     public class DishRequestModel
     {
         [Required]
-        public string? Name { get; set; }
+        public string Name { get; set; }
 
         public string? Image { get; set; }
 

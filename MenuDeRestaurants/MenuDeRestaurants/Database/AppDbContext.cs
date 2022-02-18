@@ -21,10 +21,10 @@ namespace MenuDeRestaurants.Database
             modelBuilder.Entity<DishModel>().Property(x => x.Id).ValueGeneratedOnAdd();
             modelBuilder.Entity<DishModel>().HasKey(x => x.Id);
 
-            modelBuilder.Entity<DishModel>()
-                .HasOne(x => x.Restaurant)
-                .WithOne(x => x.Dish)
-                .HasForeignKey<RestaurantModel>(x => x.DishId);
+            modelBuilder.Entity<RestaurantModel>()
+                .HasOne(x => x.Dish)
+                .WithOne(x => x.Restaurant)
+                .HasForeignKey<DishModel>(x => x.RestaurantId);
         }
     }
 }

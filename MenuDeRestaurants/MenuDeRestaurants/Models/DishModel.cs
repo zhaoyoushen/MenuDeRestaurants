@@ -4,6 +4,8 @@
     {
         public Guid Id { get; set; }
 
+        public Guid RestaurantId { get; set; }
+
         public RestaurantModel? Restaurant { get; set; }
 
         public string? Name { get; set; }
