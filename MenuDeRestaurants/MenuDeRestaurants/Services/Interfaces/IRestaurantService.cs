@@ -11,7 +11,7 @@ namespace MenuDeRestaurants.Services.Interfaces
 
         Task<RestaurantResponseModel> GetRestaurantByIdAsync(Guid id);
 
-        Task DeleteRestaurantAsync(RestaurantModel item);
+        Task DeleteRestaurantAsync(Guid id);
 
         Task<RestaurantResponseModel> UpdateRestaurantAsync(RestaurantModel item);
     }

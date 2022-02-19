@@ -37,7 +37,23 @@ namespace MenuDeRestaurants.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message);
-                return StatusCode(500);
+                return StatusCode(500, ex);
+            }
+        }
+
+        [HttpGet("{id}", Name = "GetRestaurantById")]
+        public async Task<IActionResult> GetRestaurantById(Guid id)
+        {
+            try
+            {
+                var result = await _restaurantService.GetRestaurantByIdAsync(id);
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return StatusCode(500, ex);
             }
         }
 
@@ -54,7 +70,41 @@ namespace MenuDeRestaurants.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message);
-                return StatusCode(500);
+                return StatusCode(500, ex);
+            }
+        }
+
+        [HttpPut("{id}", Name = "UpdateRestaurant")]
+        public async Task<IActionResult> UpdateRestaurant([FromBody] RestaurantRequestModel requestModel, Guid id)
+        {
+            try
+            {
+                var restaurant = _mapper.Map<RestaurantModel>(requestModel);
+                restaurant.Id = id;
+                var result = await _restaurantService.UpdateRestaurantAsync(restaurant);
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return StatusCode(500, ex);
+            }
+        }
+
+        [HttpDelete("{id}", Name = "DeleteRestaurant")]
+        public async Task<IActionResult> DeleteRestaurant(Guid id)
+        {
+            try
+            {
+                await _restaurantService.DeleteRestaurantAsync(id);
+
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return StatusCode(500, ex);
             }
         }
     }

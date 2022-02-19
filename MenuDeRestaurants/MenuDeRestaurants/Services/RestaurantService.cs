@@ -38,15 +38,28 @@ namespace MenuDeRestaurants.Services
             return _mapper.Map<RestaurantResponseModel>(restaurant);
         }
 
-        public async Task DeleteRestaurantAsync(RestaurantModel item)
+        public async Task DeleteRestaurantAsync(Guid id)
         {
-            await _restaurantRepository.DeleteAsync(item);
+            var deleteItem = await _restaurantRepository.GetRestaurantByIdAsync(id);
+            CheckForNull(deleteItem);
+            await _restaurantRepository.DeleteAsync(deleteItem);
+
         }
 
         public async Task<RestaurantResponseModel> UpdateRestaurantAsync(RestaurantModel item)
         {
+            var updateItem = await _restaurantRepository.GetRestaurantByIdAsync(item.Id);
+            CheckForNull(updateItem);
             var restaurant = await _restaurantRepository.UpdateAsync(item);
             return _mapper.Map<RestaurantResponseModel>(restaurant);
+        }
+
+        private void CheckForNull(Object obj)
+        {
+            if (obj == null)
+            {
+                throw new Exception("Item is not Found");
+            }
         }
     }
 }
