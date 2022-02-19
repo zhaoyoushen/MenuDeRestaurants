@@ -4,6 +4,8 @@
     {
         public string? Id { get; set; }
 
+        public string? RestaurantId { get; set; }
+
         public string? Name { get; set; }
 
         public string? Image { get; set; }
@@ -12,6 +14,6 @@
 
         public string? Ingredients { get; set; }
 
-        public string? Quantities { get; set; }
+        public int? Quantities { get; set; }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace MenuDeRestaurants.Models
+﻿using MenuDeRestaurants.Models.Enum;
+
+namespace MenuDeRestaurants.Models
 {
     public class DishModel
     {
@@ -12,10 +14,10 @@
 
         public string? Image { get; set; }
 
-        public string? Category { get; set; }
+        public CategoryEnum? Category { get; set; }
 
         public string? Ingredients { get; set; }
 
-        public string? Quantities { get; set; }
+        public int? Quantities { get; set; }
     }
 }

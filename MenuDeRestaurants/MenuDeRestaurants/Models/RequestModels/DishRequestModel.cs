@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using MenuDeRestaurants.Models.Enum;
 
 namespace MenuDeRestaurants.Models.RequestModels
 {
@@ -11,10 +12,10 @@ namespace MenuDeRestaurants.Models.RequestModels
 
         public string? Image { get; set; }
 
-        public string? Category { get; set; }
+        public CategoryEnum? Category { get; set; }
 
         public string? Ingredients { get; set; }
 
-        public string? Quantities { get; set; }
+        public int? Quantities { get; set; }
     }
 }
