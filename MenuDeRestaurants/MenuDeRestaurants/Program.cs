@@ -34,9 +34,11 @@ builder.Services.AddSingleton(mapper);
 //Repositories
 builder.Services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddTransient<IRestaurantRepository, RestaurantRepository>();
+builder.Services.AddTransient<IDishRepository, DishRepository>();
 
 //Services
 builder.Services.AddTransient<IRestaurantService, RestaurantService>();
+builder.Services.AddTransient<IDishService, DishService>();
 
 var app = builder.Build();
 
