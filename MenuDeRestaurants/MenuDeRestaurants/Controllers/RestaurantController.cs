@@ -1,6 +1,8 @@
 using AutoMapper;
 using MenuDeRestaurants.Models;
+using MenuDeRestaurants.Models.RequestModels;
 using MenuDeRestaurants.Models.ResponseModels;
+using MenuDeRestaurants.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MenuDeRestaurants.Controllers
@@ -9,37 +11,50 @@ namespace MenuDeRestaurants.Controllers
     [Route("[controller]")]
     public class RestaurantController : ControllerBase
     {
-        private static readonly List<RestaurantModel> Summaries = new List<RestaurantModel> 
-        {
-            new RestaurantModel
-            {
-                Id = Guid.NewGuid(),
-                Name = "test"
-            }
-        };
-
+        private readonly IRestaurantService _restaurantService;
         private readonly ILogger<RestaurantController> _logger;
         private readonly IMapper _mapper;
 
         public RestaurantController(
             ILogger<RestaurantController> logger,
-            IMapper mapper)
+            IMapper mapper,
+            IRestaurantService restaurantService)
         {
             _logger = logger;
             _mapper = mapper;
+            _restaurantService = restaurantService;
         }
 
-        [HttpGet(Name = "GetRestaurants")]
-        public IEnumerable<RestaurantResponseModel> Get()
+        [HttpGet]
+        public async Task<IActionResult> GetAllRestaurants()
         {
             try
             {
-                return Summaries.Select(x => _mapper.Map<RestaurantResponseModel>(x));
+                var result = await _restaurantService.GetAllRestaurantAsync();
+
+                return Ok(result);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 _logger.LogError(ex.Message);
-                return null;
+                return StatusCode(500);
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateRestaurant([FromBody] RestaurantRequestModel requestModel)
+        {
+            try
+            {
+                var restaurant = _mapper.Map<RestaurantModel>(requestModel);
+                var result = await _restaurantService.AddRestaurantAsync(restaurant);
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return StatusCode(500);
             }
         }
     }

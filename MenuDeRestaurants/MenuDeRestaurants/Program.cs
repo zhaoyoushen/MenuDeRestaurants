@@ -1,6 +1,9 @@
 using AutoMapper;
 using MenuDeRestaurants.Database;
+using MenuDeRestaurants.Database.Contracts;
 using MenuDeRestaurants.Mappers;
+using MenuDeRestaurants.Services;
+using MenuDeRestaurants.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -26,6 +29,13 @@ var mappingConfig = new MapperConfiguration(mc =>
 
 var mapper = mappingConfig.CreateMapper();
 builder.Services.AddSingleton(mapper);
+
+//Repositories
+builder.Services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
+builder.Services.AddTransient<IRestaurantRepository, RestaurantRepository>();
+
+//Services
+builder.Services.AddTransient<IRestaurantService, RestaurantService>();
 
 var app = builder.Build();
 

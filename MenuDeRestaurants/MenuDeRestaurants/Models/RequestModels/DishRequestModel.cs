@@ -7,6 +7,8 @@ namespace MenuDeRestaurants.Models.RequestModels
         [Required]
         public string Name { get; set; }
 
+        public Guid RestaurantId { get; set; }
+
         public string? Image { get; set; }
 
         public string? Category { get; set; }
