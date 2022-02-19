@@ -4,7 +4,7 @@
     {
         public string? Id { get; set; }
 
-        public DishResponseModel? Dish { get; set; }
+        public IEnumerable<DishResponseModel>? Dishes { get; set; }
 
         public string? Name { get; set; }
 

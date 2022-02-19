@@ -25,7 +25,7 @@ namespace MenuDeRestaurants.Controllers
             _dishService = dishService;
         }
 
-        [HttpGet]
+        [HttpGet(Name = "GetAllDishes")]
         public async Task<IActionResult> GetAllDishes()
         {
             try
@@ -57,7 +57,7 @@ namespace MenuDeRestaurants.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpPost(Name = "CreateDish")]
         public async Task<IActionResult> CreateDish([FromBody] DishRequestModel requestModel)
         {
             try

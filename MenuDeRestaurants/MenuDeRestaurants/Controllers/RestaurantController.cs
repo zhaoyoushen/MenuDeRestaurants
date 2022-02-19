@@ -25,7 +25,7 @@ namespace MenuDeRestaurants.Controllers
             _restaurantService = restaurantService;
         }
 
-        [HttpGet]
+        [HttpGet(Name = "GetAllRestaurants")]
         public async Task<IActionResult> GetAllRestaurants()
         {
             try
@@ -57,7 +57,7 @@ namespace MenuDeRestaurants.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpPost(Name = "CreateRestaurant")]
         public async Task<IActionResult> CreateRestaurant([FromBody] RestaurantRequestModel requestModel)
         {
             try

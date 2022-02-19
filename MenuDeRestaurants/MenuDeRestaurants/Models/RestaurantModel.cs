@@ -4,7 +4,7 @@
     {
         public Guid Id { get; set; }
 
-        public DishModel? Dish { get; set; }
+        public IEnumerable<DishModel>? Dishes { get; set; }
 
         public string? Name { get; set; }
 

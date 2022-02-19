@@ -15,7 +15,7 @@ namespace MenuDeRestaurants.Database
         {
             var item = await _context.Restaurants
                 .Where(r => r.Id == id)
-                .Include(x => x.Dish)
+                .Include(x => x.Dishes)
                 .AsNoTracking()
                 .FirstOrDefaultAsync();
            
