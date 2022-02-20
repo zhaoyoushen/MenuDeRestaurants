@@ -22,7 +22,25 @@ In this readme you can find all details about this project.
 > - If you want to add a new restaurant you can use the "GetAllRestaurants" API,
 > - If you want to show all dishes for a restaurant, you can use the "GetRestaurantById"
 
-##### you can find the API documentation when you run the project.
+### Set up on your local And do the first run
+Clone the code to your local
+```sh
+git clone https://github.com/zhaoyoushen/MenuDeRestaurants.git
+```
+set the connection string in "appsetting.json"
+```
+ "DbContext": {
+    "ConnectionString": "Put your connection string here"
+  } 
+```
+In PM Console run
+```sh
+Update-Database
+```
+> Check your SQL database, you will find the new tables are added,
+> Now you can run the project on your local, Have fun
+
+### you can find the API documentation when you run the project.
 We are using Swashbuckle.AspNetCore [here](https://github.com/domaindrivendev/Swashbuckle.AspNetCore)
 Swashbuckle will generate API documentation, including a UI to explore and test operations, directly from your routes, controllers and models.
 
@@ -75,24 +93,6 @@ To run migrations:
 `Update-Database`
 
 To check yourself you can run your migrations on your local DB, before pushing to master.
-
-### Set up on your local
-Clone the code to your local
-```sh
-git clone https://github.com/zhaoyoushen/MenuDeRestaurants.git
-```
-set the connection string in "appsetting.json"
-```
- "DbContext": {
-    "ConnectionString": "Put your connection string here"
-  } 
-```
-In PM Console run
-```sh
-Update-Database
-```
-> Check your SQL database, you will find the new tables are added,
-> Now you can run the project on your local, Have fun
 
 ## Architecture
 ### Structure
