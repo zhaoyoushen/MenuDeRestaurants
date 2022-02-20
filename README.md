@@ -26,6 +26,8 @@ In this readme you can find all details about this project.
 We are using Swashbuckle.AspNetCore [here](https://github.com/domaindrivendev/Swashbuckle.AspNetCore)
 Swashbuckle will generate API documentation, including a UI to explore and test operations, directly from your routes, controllers and models.
 
+>Also you can find the OAS yaml file in the Repo, and for seeing the documentation you can copy the content paste to https://editor.swagger.io/
+
 ## Tech
 
 - [.Net6] - NET 6 is the fastest full stack web framework.
