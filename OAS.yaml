@@ -1,0 +1,208 @@
+openapi: 3.0.1
+info:
+  title: MenuDeRestaurants
+  version: '1.0'
+paths:
+  /Dish:
+    get:
+      tags:
+        - Dish
+      operationId: GetAllDishes
+      responses:
+        '200':
+          description: Success
+    post:
+      tags:
+        - Dish
+      operationId: CreateDish
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DishRequestModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/DishRequestModel'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/DishRequestModel'
+      responses:
+        '200':
+          description: Success
+  '/Dish/{id}':
+    get:
+      tags:
+        - Dish
+      operationId: GetDishById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Success
+    put:
+      tags:
+        - Dish
+      operationId: UpdateDish
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DishRequestModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/DishRequestModel'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/DishRequestModel'
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - Dish
+      operationId: DeleteDish
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Success
+  /Restaurant:
+    get:
+      tags:
+        - Restaurant
+      operationId: GetAllRestaurants
+      responses:
+        '200':
+          description: Success
+    post:
+      tags:
+        - Restaurant
+      operationId: CreateRestaurant
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RestaurantRequestModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/RestaurantRequestModel'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/RestaurantRequestModel'
+      responses:
+        '200':
+          description: Success
+  '/Restaurant/{id}':
+    get:
+      tags:
+        - Restaurant
+      operationId: GetRestaurantById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Success
+    put:
+      tags:
+        - Restaurant
+      operationId: UpdateRestaurant
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RestaurantRequestModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/RestaurantRequestModel'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/RestaurantRequestModel'
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - Restaurant
+      operationId: DeleteRestaurant
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Success
+components:
+  schemas:
+    CategoryEnum:
+      enum:
+        - 0
+        - 1
+        - 2
+      type: integer
+      format: int32
+    DishRequestModel:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          type: string
+        restaurantId:
+          type: string
+          format: uuid
+        image:
+          type: string
+          nullable: true
+        category:
+          $ref: '#/components/schemas/CategoryEnum'
+        ingredients:
+          type: string
+          nullable: true
+        quantities:
+          type: integer
+          format: int32
+          nullable: true
+      additionalProperties: false
+    RestaurantRequestModel:
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          type: string
+        image:
+          type: string
+          nullable: true
+      additionalProperties: false
