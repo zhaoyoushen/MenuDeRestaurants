@@ -18,9 +18,9 @@ In this readme you can find all details about this project.
 - UpdateDish
 - DeleteDish
 
-> For Example:
-> - If you want to add a new restaurant you can call the "GetAllRestaurants" API,
-> - If you want to show all dishes for a restaurant, you can call the "GetRestaurantById"
+> For Front End Developper:
+> - If you want to add a new restaurant you can use the "GetAllRestaurants" API,
+> - If you want to show all dishes for a restaurant, you can use the "GetRestaurantById"
 
 ##### you can find the API documentation when you run the project.
 We are using Swashbuckle.AspNetCore [here](https://github.com/domaindrivendev/Swashbuckle.AspNetCore)
