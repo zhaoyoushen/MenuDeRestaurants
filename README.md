@@ -76,6 +76,24 @@ To run migrations:
 
 To check yourself you can run your migrations on your local DB, before pushing to master.
 
+### Set up on your local
+Clone the code to your local
+```sh
+git clone https://github.com/zhaoyoushen/MenuDeRestaurants.git
+```
+set the connection string in "appsetting.json"
+```
+ "DbContext": {
+    "ConnectionString": "Put your connection string here"
+  } 
+```
+In PM Console run
+```sh
+Update-Database
+```
+> Check your SQL database, you will find the new tables are added,
+> Now you can run the project on your local, Have fun
+
 ## Architecture
 ### Structure
 - We are using Layered architecture, if you need more info you can find [here](https://www.oreilly.com/library/view/software-architecture-patterns/9781491971437/ch01.html)
