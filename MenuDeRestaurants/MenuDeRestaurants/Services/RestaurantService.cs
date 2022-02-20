@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MenuDeRestaurants.Database.Contracts;
+using MenuDeRestaurants.Exception;
 using MenuDeRestaurants.Models;
 using MenuDeRestaurants.Models.ResponseModels;
 using MenuDeRestaurants.Services.Interfaces;
@@ -58,7 +59,7 @@ namespace MenuDeRestaurants.Services
         {
             if (obj == null)
             {
-                throw new Exception("Item is not Found");
+                throw new MyException("Restaurant");
             }
         }
     }

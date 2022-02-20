@@ -33,7 +33,7 @@ namespace MenuDeRestaurants.Database
 
             if (await _context.SaveChangesAsync() <= 0)
             {
-                throw new Exception("Delete Failed");
+                throw new System.Exception("Delete Failed");
             }
         }
 
@@ -43,7 +43,7 @@ namespace MenuDeRestaurants.Database
 
             if (await _context.SaveChangesAsync() <= 0)
             {
-                throw new Exception("Update Failed");
+                throw new System.Exception("Update Failed");
             }
 
             return item;

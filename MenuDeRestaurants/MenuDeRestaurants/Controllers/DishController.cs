@@ -1,7 +1,7 @@
 using AutoMapper;
+using MenuDeRestaurants.Exception;
 using MenuDeRestaurants.Models;
 using MenuDeRestaurants.Models.RequestModels;
-using MenuDeRestaurants.Models.ResponseModels;
 using MenuDeRestaurants.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -34,10 +34,10 @@ namespace MenuDeRestaurants.Controllers
 
                 return Ok(result);
             }
-            catch (Exception ex)
+            catch (System.Exception ex)
             {
                 _logger.LogError(ex.Message);
-                return StatusCode(500, ex);
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
 
@@ -50,10 +50,10 @@ namespace MenuDeRestaurants.Controllers
 
                 return Ok(result);
             }
-            catch (Exception ex)
+            catch (System.Exception ex)
             {
                 _logger.LogError(ex.Message);
-                return StatusCode(500, ex);
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
 
@@ -67,10 +67,15 @@ namespace MenuDeRestaurants.Controllers
 
                 return Ok(result);
             }
-            catch (Exception ex)
+            catch (MyException ex)
             {
                 _logger.LogError(ex.Message);
-                return StatusCode(500, ex);
+                return StatusCode(StatusCodes.Status400BadRequest, ex.Message);
+            }
+            catch (System.Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
 
@@ -85,10 +90,15 @@ namespace MenuDeRestaurants.Controllers
 
                 return Ok(result);
             }
-            catch (Exception ex)
+            catch (MyException ex)
             {
                 _logger.LogError(ex.Message);
-                return StatusCode(500, ex);
+                return StatusCode(StatusCodes.Status400BadRequest, ex.Message);
+            }
+            catch (System.Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
 
@@ -101,10 +111,15 @@ namespace MenuDeRestaurants.Controllers
 
                 return NoContent();
             }
-            catch (Exception ex)
+            catch (MyException ex)
             {
                 _logger.LogError(ex.Message);
-                return StatusCode(500, ex);
+                return StatusCode(StatusCodes.Status400BadRequest, ex.Message);
+            }
+            catch (System.Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
     }
