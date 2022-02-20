@@ -1,4 +1,5 @@
 # MenuDeRestaurants
+
 ## _This is the readme_
 
 This Project is a .NET6 project and you can run it with Visual Studio after setting the Database.
@@ -16,6 +17,10 @@ In this readme you can find all details about this project.
 - CreateDish
 - UpdateDish
 - DeleteDish
+
+> For Example:
+> - If you want to add a new restaurant you can call the "GetAllRestaurants" API,
+> - If you want to show all dishes for a restaurant, you can call the "GetRestaurantById"
 
 ##### you can find the API documentation when you run the project.
 We are using Swashbuckle.AspNetCore [here](https://github.com/domaindrivendev/Swashbuckle.AspNetCore)
@@ -63,9 +68,49 @@ To run migrations:
 
 To check yourself you can run your migrations on your local DB, before pushing to master.
 
-## Development
-列出应用程序的不同层
-### Function Flow
+## Architecture
+### Structure
+- We are using Layered architecture, if you need more info you can find [here](https://www.oreilly.com/library/view/software-architecture-patterns/9781491971437/ch01.html)
+![sapr_0101](https://user-images.githubusercontent.com/59487343/154843731-ce8af317-b62f-4dd2-830e-f48f5ca71e51.png)
+
+
+Also we are using Repository Pattern(Repository per Entity)
+#### Pros:
+- Application logic is decoupled from data access details. Only the repository classes should be rewritten when there is a need to switch the data source.
+- Custom queries are only found in repository classes. Different parts of the application logic can reuse them. Whenever a new requirement arises, such as filtering by an additional property, the single location needs to be updated.
+#### Cons:
+- The repository can grow significantly in size if there are a lot of logic associated with an entity. If the repository gets large, it is likely that many dependencies will be injected into the constructor. The more there are, the more difficult it will be to unit test the repository code.
+- Read and write queries are part of the same repository class, so reads cannot be scaled out separately from writes.
+
+![Untitled Diagram drawio](https://user-images.githubusercontent.com/59487343/154845455-88fceafb-d1d5-44a0-8968-8dba3311bb63.png)
+
+### Architecture characteristics
+
+#### Overall agility
+- Rating: Low
+- Analysis: Overall agility is the ability to respond quickly to a constantly changing environment. While change can be isolated through the layers of isolation feature of this pattern, it is still cumbersome and time-consuming to make changes in this architecture pattern because of the monolithic nature of most implementations as well as the tight coupling of components usually found with this pattern.
+
+#### Ease of deployment
+- Rating: Low
+- Analysis: It must be deployed as a singular unit thus a change to a particular layer means the whole system must be redeployed.
+#### Testability
+- Rating: High
+- Analysis: It is easy to test as components belong to specific layers. As such, they can be tested separately.
+#### Performance
+- Rating: Low
+- Analysis: The larger is it, the more resources it requires for requests to go through multiple layers and thus will cause performance issues.
+#### Scalability
+- Rating: Low
+- Analysis: Although changes can be done to a particular layer, it is not easy because the application is a singular unit. Also, the coupling between layers tends to make it harder. This also makes it difficult to scale.
+#### Ease of development
+- Rating: High
+- Analysis: It is simple and easy to implement because naturally, most applications work in layers.
+### Architecture decisions
+- Layers of isolation: Each of the layers in the architecture is marked as being closed. This is a very important concept in the layered architecture pattern. A closed layer means that as a request moves from layer to layer.
+
+- Why? If you allow the presentation layer direct access to the persistence layer, then changes made to SQL within the persistence layer would impact both the business layer and the presentation layer, thereby producing a very tightly coupled application with lots of interdependencies between components. This type of architecture then becomes very hard and expensive to change. 
+
+## Function Flow
 #### Restaurant
 - GetAllRestaurants
 
