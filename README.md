@@ -65,6 +65,11 @@ To check yourself you can run your migrations on your local DB, before pushing t
 
 ## Development
 列出应用程序的不同层
+### Architecture
+#### Structure
+#### Architecture characteristics
+#### Architecture decisions
+#### Design principles
 ### Function Flow
 #### Restaurant
 - GetAllRestaurants
