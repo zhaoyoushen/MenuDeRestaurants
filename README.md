@@ -18,7 +18,7 @@ In this readme you can find all details about this project.
 - UpdateDish
 - DeleteDish
 
-> For Front End Developper:
+> For Front End Developer:
 > - If you want to add a new restaurant you can use the "GetAllRestaurants" API,
 > - If you want to show all dishes for a restaurant, you can use the "GetRestaurantById"
 
