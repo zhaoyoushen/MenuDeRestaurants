@@ -68,35 +68,45 @@ To check yourself you can run your migrations on your local DB, before pushing t
 ### Function Flow
 #### Restaurant
 - GetAllRestaurants
+
 ![Items drawio (5)](https://user-images.githubusercontent.com/59487343/154841629-873de546-8e0f-48f6-bc7f-6955acdb5827.png)
 
 - GetRestaurantById
+
 ![Items drawio (8)](https://user-images.githubusercontent.com/59487343/154841644-fdb2144f-9ecf-47c2-9a53-ca06f3876bfb.png)
 
 - CreateRestaurant
+
 ![Items drawio (9)](https://user-images.githubusercontent.com/59487343/154841664-1d319add-6d86-43c0-b29f-79a9ac34be6c.png)
 
 - UpdateRestaurant
+
 ![Items drawio (4)](https://user-images.githubusercontent.com/59487343/154841684-3426b66a-2a05-42b0-926d-3a91b57f02e8.png)
 
 - DeleteRestaurant
+
 ![Items drawio](https://user-images.githubusercontent.com/59487343/154841699-a21773e2-8de8-4758-9624-eb03d70dd617.png)
 
 
 #### Dish
 - GetAllDishes
+
 ![Items drawio (6)](https://user-images.githubusercontent.com/59487343/154841759-9306c72e-b50b-420a-8447-a58dc78d5fba.png)
 
 - GetDishById
+
 ![Items drawio (7)](https://user-images.githubusercontent.com/59487343/154841764-8f3acab8-9407-4c4e-bdf7-14ec9ffb7fd2.png)
 
 - CreateDish
+
 ![Items drawio (2)](https://user-images.githubusercontent.com/59487343/154841745-1837e88f-b0c5-4385-a389-de7e65437c93.png)
 
 - UpdateDish
+
 ![Items drawio (3)](https://user-images.githubusercontent.com/59487343/154841749-80c11a6f-0c76-4f90-8bc7-4350706a6e66.png)
 
 - DeleteDish
+
 ![Items drawio (1)](https://user-images.githubusercontent.com/59487343/154841730-27466718-a76d-484f-a9c7-f0353afd3f84.png)
 
 
