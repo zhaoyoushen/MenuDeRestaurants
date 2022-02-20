@@ -26,6 +26,10 @@ In this readme you can find all details about this project.
 We are using Swashbuckle.AspNetCore [here](https://github.com/domaindrivendev/Swashbuckle.AspNetCore)
 Swashbuckle will generate API documentation, including a UI to explore and test operations, directly from your routes, controllers and models.
 
+- Click on try it out, you can test the api directly from the browser
+![image](https://user-images.githubusercontent.com/59487343/154852113-ab4e9920-758f-44d5-92a8-43a54e6a2ac0.png)
+![image](https://user-images.githubusercontent.com/59487343/154852130-a8b6e38c-be57-4195-9b66-5b84ee6c207f.png)
+
 >Also you can find the OAS yaml file in the Repo, and for seeing the documentation you can copy the content paste to https://editor.swagger.io/
 
 ## Tech
